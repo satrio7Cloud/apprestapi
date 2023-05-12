@@ -13,3 +13,5 @@ conn.connect((err) => {
     if (err) throw err;
     console.log("Mysql Connected")
 })
+
+module.exports = conn;
