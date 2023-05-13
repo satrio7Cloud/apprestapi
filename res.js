@@ -1,6 +1,6 @@
 'use strict';
 
-exports.ok = function(value, res) {
+exports.ok = function(values, res) {
     let data = {
         'status': 200,
         'value': values
