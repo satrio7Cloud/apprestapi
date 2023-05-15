@@ -33,7 +33,7 @@ exports.showAllByIdData = function (req, res) {
         });
 };
 
-// add data 
+// add data to database
 
 exports.addData = function(req, res) {
     let id_mahasiswa = req.body.id_mahasiswa;
@@ -51,3 +51,23 @@ exports.addData = function(req, res) {
         }
     });
 };
+
+// changes data based on Id
+
+exports.changeData = function(req, res) {
+    let id = req.body.id_mahasiswa;
+    let id_mahasiswa = req.body.id_mahasiswa;
+    let nim = req.body.nim;
+    let nama = req.body.nama;
+    let jurusan = req.body.jurusan;
+
+    connection.query('UPDATE mahasiswa SET id_mahasiswa=?, nim=?, nama=?, jurusan=? WHERE id_mahasiswa=?',
+     [id_mahasiswa, nim, nama, jurusan, id],
+     function (error, rows, fields) {
+        if (error) {
+            console.log(error)
+        } else {
+            response.ok("Success change data based on ID", res)
+        }
+    }
+ )};
