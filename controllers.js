@@ -32,3 +32,22 @@ exports.showAllByIdData = function (req, res) {
             }
         });
 };
+
+// add data 
+
+exports.addData = function(req, res) {
+    let id_mahasiswa = req.body.id_mahasiswa;
+    let nim = req.body.nim;
+    let nama = req.body.nama;
+    let jurusan = req.body.jurusan;
+
+    connection.query('INSERT INTO mahasiswa (id_mahasiswa, nim, nama, jurusan) VALUES (?,?,?,?)', 
+    [id_mahasiswa, nim, nama, jurusan],
+    function(error, rows, fields) {
+        if (error) {
+            console.log(error);
+        } else {
+            response.ok("Success add Data!", res);
+        }
+    });
+};

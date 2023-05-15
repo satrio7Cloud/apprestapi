@@ -11,4 +11,7 @@ module.exports = function(app) {
 
         app.route('/show/:id')
             .get(myJson.showAllByIdData)
-}
+
+        app.route('/add')
+            .post(myJson.addData)
+} 
