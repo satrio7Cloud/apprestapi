@@ -17,4 +17,7 @@ module.exports = function(app) {
             
         app.route('/change')
             .put(myJson.changeData)
+
+        app.route('/delete')
+            .delete(myJson.deleteData)
 } 
